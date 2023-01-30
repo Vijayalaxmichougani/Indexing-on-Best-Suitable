@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Demand display</title>
+    </head>
+    <body>
+    <h2 align="center">DEMAND DATA</h2>
+    <style>
+        h2{color: blue;}
+    </style>
+    <br>
+    <div class="divScrollbar">
+        <style>
+            .divScrollbar {
+                background-color: powderblue;
+                overflow: auto;
+                height: 200px;
+                width: 96%;
+                padding: 20px;
+            }
+        </style>
+        {{ df|safe }}
+    </div>    
+    <br>
+    <form action="/supply">
+        RESOURCE DEMAND : <input type="text" name="num1">
+      <input type="submit">
+        </form>    
+        <h3>.....        Selected demand : {{ demand }}      .....</h3>
+        <style>
+            h3 {
+                color: green;
+            }
+        </style>
+ <h2 align="center">SUPPLY DATA</h2>
+ <style>
+    h2{color: blue;}
+</style>
+<div class="divScrollbar">
+    <style>
+        .divScrollbar {
+            background-color: powderblue;
+            overflow: auto;
+            height: 200px;
+            width: 96%;
+            padding: 20px;
+        }
+    </style>
+    {{ df1|safe }}
+  
+</div>
+    </body>
+</html>
