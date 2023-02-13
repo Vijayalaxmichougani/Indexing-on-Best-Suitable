@@ -18,10 +18,12 @@ from django.urls import path
 from two.views import demand
 from two.views import supply
 from two.views import home
+from two.views import one
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', home, name="home"),
+    path('', home, name="home"),
     path("demand/", demand, name="demand"),
     path("supply/", supply, name="supply"),
+    path("one/", one, name="one"),
 ]

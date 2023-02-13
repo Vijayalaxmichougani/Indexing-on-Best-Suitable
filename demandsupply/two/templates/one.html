@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>supply display</title>
+    </head>
+
+<body>
+    <h1>SUPPLY</h1>
+    <br>
+    <div class="divScrollbar">
+        <style>
+            .divScrollbar {
+                background-color: powderblue;
+                overflow: auto;
+                height: 200px;
+                width: 96%;
+                padding: 20px;
+            }
+        </style>
+        {{ df|safe }}
+    </div>
+    <!-- {{ df|safe }} -->
+    <br>
+
+</html>

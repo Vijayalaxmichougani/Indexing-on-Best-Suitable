@@ -12,7 +12,7 @@ def home(request):
    
 def demand(request):
     
-    DemandURL='http://10.11.52.113:9000/demand_17'
+    DemandURL='http://10.11.52.113:9000/demand_1'
     response = requests.get(DemandURL)
     r2 = response.json()
     demand_df = pd.DataFrame.from_dict(r2)
@@ -25,8 +25,8 @@ def demand(request):
 
 def supply(request):
    
-    DemandURL='http://10.11.52.113:9000/demand_17'
-    SupplyURL='http://10.11.52.113:8000/sup_17'
+    DemandURL='http://10.11.52.113:9000/demand_1'
+    SupplyURL='http://10.11.52.113:7000/supply_13'
     response = requests.get(DemandURL)
     r2 = response.json()
     demand_df = pd.DataFrame.from_dict(r2)
@@ -46,3 +46,16 @@ def supply(request):
          'df1' : supply_df.to_html()
         }
     return render(request, 'supply.html', context1)
+
+def one(request):
+    params = {"demand" : 20}
+    response = requests.get('http://10.11.52.113:7000/supply_13',json = params)
+    r3 = response.json()
+    dict = pd.json_normalize(response)
+    print(dict)
+    supply_df = pd.DataFrame.from_dict(r3)
+    print(supply_df)
+    context = {
+         'df' : supply_df.to_html()
+        }
+    return render(request,'one.html',context)
